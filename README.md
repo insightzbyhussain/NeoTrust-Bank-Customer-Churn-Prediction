@@ -221,7 +221,7 @@ Data Scientist | 🏆 Rank 1 in Academia
 ### Connect with me
 📧 [mohdhussainkhan.ds@gmail.com]
 💼 [www.linkedin.com/in/mohdhussain-khan]
-🐙 [(https://github.com/insightzbyhussain)]
+🐙 [https://github.com/insightzbyhussain]
 
 ---
 
