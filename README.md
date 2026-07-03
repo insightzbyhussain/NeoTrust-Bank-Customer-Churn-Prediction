@@ -215,6 +215,7 @@ NeoTrust_Bank_Customer_Churn_Prediction_Dashboard.pbix
 ## 👤 Author
 
 **Mohd Hussain Khan**
+
 Data Scientist | 🏆 Rank 1 in Academia
 
 ### Connect with me
