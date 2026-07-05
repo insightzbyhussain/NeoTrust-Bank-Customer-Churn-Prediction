@@ -1,4 +1,4 @@
-# 🏦 NeoTrust Bank — Customer Churn Prediction & Retention Revenue Calculator
+# 🏦 NeoTrust Bank - Customer Churn Prediction & Retention Revenue Calculator
 
 > **Identifying ₹2.29 Crore in Annual Revenue Risk across 6,001 Neo-Banking Customers**
 
@@ -11,12 +11,12 @@
 
 ## 📌 Business Problem
 
-Indian neo-banks like Open Financial Technologies and Jupiter Money posted combined net losses exceeding ₹1,300 Crore in FY24-25, despite strong revenue growth. The core issue is not customer acquisition — it is retention.
+Indian neo-banks like Open Financial Technologies and Jupiter Money posted combined net losses exceeding ₹1,300 Crore in FY24-25, despite strong revenue growth. The core issue is not customer acquisition it is retention.
 
 Customer Acquisition Cost (CAC) for Indian neo-banks averages ₹1,200 per customer. When a customer churns, that investment is lost entirely. A ₹40,000 retention campaign targeting the right customers can protect ₹20,00,000+ in annual revenue.
 
 **This project answers one business question:**
-> *"Which customers are about to leave — and how much does it cost us if they do?"*
+> *"Which customers are about to leave and how much does it cost us if they do?"*
 
 ---
 
@@ -78,7 +78,7 @@ Power BI Dashboard → 3-Page Interactive Dashboard
 
 ## ⚠️ Model Design Decision — Two Separate Outputs
 
-Churn was defined as "zero transactions in 90 days." Including transaction-derived features (recency, frequency, amount) directly into the model creates circular reasoning — the model would simply rediscover its own label definition rather than learning genuine predictive patterns.
+Churn was defined as "zero transactions in 90 days." Including transaction-derived features (recency, frequency, amount) directly into the model creates circular reasoning the model would simply rediscover its own label definition rather than learning genuine predictive patterns.
 
 Therefore this project produces **three separate outputs:**
 
@@ -86,10 +86,10 @@ Therefore this project produces **three separate outputs:**
 |---|---|---|---|
 | Behavioral Trigger Classifier | Random Forest | 0.6753 | Identifies already-churning customers using transaction + ticket signals |
 | Early Warning Demographic Model | Random Forest | 0.5114 | Segments high-risk customers by profile before behavior drops off |
-| SQL Trigger Rule | SQL Alert | — | Flags zero-transaction customers in real-time — simplest and strongest retention tool |
+| SQL Trigger Rule | SQL Alert | - | Flags zero-transaction customers in real-time simplest and strongest retention tool |
 
 **Why Model 2 AUC of 0.51 is the correct and honest result:**
-Demographic signals alone (KYC, credit saturation, income, age) cannot predict behavioral churn — this validates the decision to use a SQL alert rule as the primary retention mechanism, not ML.
+Demographic signals alone (KYC, credit saturation, income, age) cannot predict behavioral churn this validates the decision to use a SQL alert rule as the primary retention mechanism, not ML.
 
 ---
 
@@ -100,20 +100,20 @@ Demographic signals alone (KYC, credit saturation, income, age) cannot predict b
 | Rank | Driver | Insight |
 |---|---|---|
 | 1 | Transaction Frequency | Churned customers transact at half the rate of active customers (median 12 vs 27) |
-| 2 | Credit Saturation | Customers with 5+ lending relationships churn at 48% vs 35% for low-saturation customers — aligned with RBI FSR 2024 |
+| 2 | Credit Saturation | Customers with 5+ lending relationships churn at 48% vs 35% for low-saturation customers aligned with RBI FSR 2024 |
 | 3 | KYC Incompleteness | Unknown/Incomplete KYC customers churn at 41% vs 37% for verified customers |
-| 4 | Acquisition Channel | Paid Social customers churn at 40% — highest among all channels |
+| 4 | Acquisition Channel | Paid Social customers churn at 40% highest among all channels |
 | 5 | Support Complaints | Churned customers raise 33% more high risk tickets before leaving |
 
-> **Note on EDA vs Model Feature Importance:** EDA measures group-level average differences in isolation. The Random Forest model evaluates each feature's contribution after accounting for all other features simultaneously. Both are valid — EDA guides WHO to target, the model guides WHEN to intervene.
+> **Note on EDA vs Model Feature Importance:** EDA measures group-level average differences in isolation. The Random Forest model evaluates each feature's contribution after accounting for all other features simultaneously. Both are valid EDA guides WHO to target, the model guides WHEN to intervene.
 
 ### Model Performance
 
 | Model | ROC-AUC | Purpose |
 |---|---|---|
-| Logistic Regression — Behavioral | 0.6875 | Baseline behavioral trigger |
-| Random Forest — Behavioral | 0.6753 | Final behavioral trigger classifier |
-| Random Forest — Early Warning | 0.5114 | Demographic risk segmentation |
+| Logistic Regression - Behavioral | 0.6875 | Baseline behavioral trigger |
+| Random Forest - Behavioral | 0.6753 | Final behavioral trigger classifier |
+| Random Forest - Early Warning | 0.5114 | Demographic risk segmentation |
 
 ---
 
@@ -128,7 +128,7 @@ Demographic signals alone (KYC, credit saturation, income, age) cannot predict b
 | High Risk Customers (≥70% probability) | 2,228 |
 | Retention Campaign Cost (Top 200) | ₹40,000 |
 
-### Scenario Analysis — Retention ROI
+### Scenario Analysis Retention ROI
 
 | Scenario | Customers Saved | Revenue Protected | ROI |
 |---|---|---|---|
@@ -142,7 +142,7 @@ Demographic signals alone (KYC, credit saturation, income, age) cannot predict b
 
 ## 💡 Business Recommendations
 
-1. **Immediate — SQL Transaction Alert**
+1. **Immediate SQL Transaction Alert**
    Flag any customer with zero transactions for 30+ days for automated retention outreach. No ML needed — implementable as a single SQL query and the strongest retention tool.
 
 2. **Credit Saturation Early Warning**
@@ -211,22 +211,22 @@ pip install pandas numpy matplotlib seaborn scikit-learn sqlalchemy
 
 ### Steps
 
-**Step 1 — Generate Raw Data**
+**Step 1 - Generate Raw Data**
 ```bash
 python generate_raw_data.py
 ```
 
-**Step 2 — Ingest into Database**
+**Step 2 - Ingest into Database**
 ```bash
 python ingestion_db.py
 ```
 
-**Step 3 — Run ETL Pipeline**
+**Step 3 - Run ETL Pipeline**
 ```bash
 python etl_pipeline.py
 ```
 
-**Step 4 — Run Notebooks in Order**
+**Step 4 - Run Notebooks in Order**
 ```
 02_eda.ipynb                → Exploratory Data Analysis
 03_ml_model.ipynb           → Two-Model Churn Architecture
@@ -234,7 +234,7 @@ python etl_pipeline.py
 05_sql_analysis.ipynb       → SQL Business Insights
 ```
 
-**Step 5 — Open Power BI Dashboard**
+**Step 5 - Open Power BI Dashboard**
 ```
 NeoTrust_Bank_Customer_Churn_Prediction_Dashboard.pbix
 ```
